@@ -1,0 +1,8 @@
+baseurl = "http://cng-blog.cfapps.io/"
+languageCode = "en-us"
+title = "Cloud Native Go"
+theme = "hyde"
+
+[params]
+  themeColor = "theme-base-0d"
+
