@@ -1,0 +1,31 @@
+box: cloudnativego/hugo:0.14.0
+
+build:
+  steps:
+    - script:
+        name: generate hugo
+        code: |
+          cd $WERCKER_SOURCE_DIR
+          hugo
+
+    - script:
+        name: touch Staticfile
+        code: |
+          touch public/Staticfile
+
+    - script:
+        name: add contents to output
+        code: |
+          cp -R ./ ${WERCKER_OUTPUT_DIR}
+          
+deploy:
+  steps: 
+    - xchapter7x/cf-push-zdd:
+        user_name: $USERNAME
+        user_pass: $PASSWORD
+        org: $CF_ORG
+        space: $CF_SPACE
+        api_url: $CF_APIURL
+        app_name: $CF_APPNAME
+        use_manifest: true
+        manifest: $CF_MANIFEST
