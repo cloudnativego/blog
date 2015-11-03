@@ -2,6 +2,5 @@
 applications:
 - name: cng-blog
   host: blog
-  path: public
   memory: 16M
   domain: cloudnativego.com
