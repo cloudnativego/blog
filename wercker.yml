@@ -6,7 +6,9 @@ build:
         name: generate hugo
         code: |
           cd $WERCKER_SOURCE_DIR
-          pwd
+          # The following line is necessary to circumvent
+          # functional inconsistencies between Mac OS and
+          # Linux. It is ugly. It is awful. But, it is.
           cp -R ./themes/hyde/static ./static
           hugo
 
