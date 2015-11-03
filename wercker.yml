@@ -6,15 +6,18 @@ build:
         name: generate hugo
         code: |
           cd $WERCKER_SOURCE_DIR
+          pwd
           hugo
 
     - script:
         name: add contents to output
         code: |
+          echo ${WERKCER_OUTPUT_DIR}
           cp -R ./ ${WERCKER_OUTPUT_DIR}
-          
+          cd ${WERCKER_OUTPUT_DIR}
+
 deploy:
-  steps: 
+  steps:
     - joshuamckenty/cloud-foundry-deploy:
       api: $CF_APIURL
       username: $USERNAME
