@@ -9,11 +9,6 @@ build:
           hugo
 
     - script:
-        name: touch Staticfile
-        code: |
-          touch public/Staticfile
-
-    - script:
         name: add contents to output
         code: |
           cp -R ./ ${WERCKER_OUTPUT_DIR}
