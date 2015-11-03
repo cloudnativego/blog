@@ -20,12 +20,10 @@ build:
           
 deploy:
   steps: 
-    - xchapter7x/cf-push-zdd:
-        user_name: $USERNAME
-        user_pass: $PASSWORD
-        org: $CF_ORG
-        space: $CF_SPACE
-        api_url: $CF_APIURL
-        app_name: $CF_APPNAME
-        use_manifest: true
-        manifest: $CF_MANIFEST
+    - joshuamckenty/cloud-foundry-deploy:
+      api: $CF_APIURL
+      username: $USERNAME
+      password: $PASSWORD
+      organization: $CF_ORG
+      space: $CF_SPACE
+      appname: $CF_APPNAME
